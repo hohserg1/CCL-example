@@ -1,13 +1,13 @@
 package hohserg.ccl.example;
 
-import codechicken.lib.packet.ICustomPacketHandler;
+import codechicken.lib.packet.ICustomPacketHandler.IServerPacketHandler;
 import codechicken.lib.packet.PacketCustom;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.INetHandlerPlayServer;
 
-public class ServerPacketHandler implements ICustomPacketHandler.IServerPacketHandler {
+public class ServerPacketHandler implements IServerPacketHandler {
     @Override
     public void handlePacket(PacketCustom packetCustom, EntityPlayerMP player, INetHandlerPlayServer iNetHandlerPlayServer) {
         switch (packetCustom.getType()) {//чтобы определить тип-идентификатор пакета
