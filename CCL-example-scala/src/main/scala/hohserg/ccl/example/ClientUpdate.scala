@@ -14,30 +14,19 @@ import org.lwjgl.input.Keyboard
 object ClientUpdate {
   private val key = new KeyBinding("potionUse", Keyboard.KEY_H, "HotKeys")
 
-  def init(): Unit = {
+  def init(): Unit =
     ClientRegistry.registerKeyBinding(key)
-  }
+
 
   @SubscribeEvent
   def onKeyPress(e: InputEvent.KeyInputEvent): Unit = {
     if (Keyboard.isKeyDown(key.getKeyCode)) {
       val keyBindsHotbar = Minecraft.getMinecraft.gameSettings.keyBindsHotbar
-      var key = 0
-      while ( {
-        key < keyBindsHotbar.length
-      }) {
-        if (Keyboard.isKeyDown(keyBindsHotbar(key).getKeyCode)) {
-          Packet.createPacket(1)
-            .writeInt(key) //Создаем пакет с типом-идентификатором 1
-            .sendToServer() //Записываем в него индекс хоткея слота инвентаря
-          () //Отправляем
-        }
-        {
-          key += 1;
-          key - 1
-        }
-      }
+      for (key <- 0 until keyBindsHotbar.length)
+        if (Keyboard.isKeyDown(keyBindsHotbar(key).getKeyCode))
+          Packet.createPacket(1)//Создаем пакет с типом-идентификатором 1
+            .writeInt(key) //Записываем в него индекс хоткея слота инвентаря
+            .sendToServer() //Отправляем
     }
   }
-
 }
