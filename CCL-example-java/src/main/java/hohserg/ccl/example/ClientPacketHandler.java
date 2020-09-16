@@ -9,11 +9,7 @@ public class ClientPacketHandler implements IClientPacketHandler {
     @Override
     public void handlePacket(PacketCustom packetCustom, Minecraft minecraft, INetHandlerPlayClient iNetHandlerPlayClient) {
         switch (packetCustom.getType()) {//Определяем тип пакета
-            case 1:
-                break;
             default:
-
         }
-
     }
 }

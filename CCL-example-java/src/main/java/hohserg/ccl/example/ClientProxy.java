@@ -8,6 +8,6 @@ public class ClientProxy extends CommonProxy {
     public void preinit(FMLPreInitializationEvent e) {
         super.preinit(e);
         PacketCustom.assignHandler(Main.modid, new ClientPacketHandler());
-        FMLCommonHandler.instance().bus().register(new ClientUpdate());
+        ClientUpdate.init();
     }
 }
