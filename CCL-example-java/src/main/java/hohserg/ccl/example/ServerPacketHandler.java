@@ -17,9 +17,7 @@ public class ServerPacketHandler implements IServerPacketHandler {
                 if (stack.getItem() == Items.POTIONITEM)//если в слоте зелька, то Стив выпьет ее одним глотком :D
                 {
                     ItemStack stack1 = Items.POTIONITEM.onItemUseFinish(stack, player.world, player);
-                    System.out.println(stack1.getCount());
-                    player.inventory.setInventorySlotContents(9 + potionHotSlot,
-                            stack1);
+                    player.inventory.setInventorySlotContents(9 + potionHotSlot, stack1);
                 }
                 break;
             default:
