@@ -11,7 +11,7 @@ object Main {
   var proxy: CommonProxy = _
 
   @Mod.EventHandler
-  def preinit(e: FMLPreInitializationEvent): Unit = {
+  def preinit(e: FMLPreInitializationEvent): Unit =
     proxy.preinit(e)
-  }
+
 }
